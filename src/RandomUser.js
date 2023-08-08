@@ -8,7 +8,7 @@ const RandomUserTwo = () => {
   const [num, setNum] = useState(0);
   const [searchChange, setSearchChange] = useState("");
   const [searchWord, setSearchWord] = useState(
-    localStorage.setItem("user") || "foobar"
+    localStorage.getItem("user") || "foobar"
   );
 
   const [data, setData] = useState([]);
@@ -21,7 +21,7 @@ const RandomUserTwo = () => {
 
   useEffect(() => {
     fetchUser();
-  }, []);
+  }, [searchWord]);
 
   useEffect(() => {
     localStorage.getItem("user", searchWord);
@@ -32,6 +32,7 @@ const RandomUserTwo = () => {
       console.log("i am running");
       setNum((prevNum) => (prevNum === 3 ? 0 : prevNum + 1));
     }, 7000);
+    return () => clearInterval(colorInterval);
   }, []);
 
   return (

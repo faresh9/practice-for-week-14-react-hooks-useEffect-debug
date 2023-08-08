@@ -73,7 +73,7 @@ p {
 .person {
   display: flex;
   flex-direction: column;
-  background-color: yellow;
+  background-color: whitesmoke;
   width: 30vw;
   height: 100vh;
 }
